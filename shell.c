@@ -6,7 +6,7 @@
 /*   By: jkong <jkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 20:34:05 by jkong             #+#    #+#             */
-/*   Updated: 2022/06/28 03:06:00 by jkong            ###   ########.fr       */
+/*   Updated: 2022/09/23 03:53:27 by jkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,17 @@ sig_atomic_t	g_exit_status;
 
 static void	_eval(t_shell *sh, t_parser *pst, char *rl)
 {
+	int	success;
+
 	pst->str = rl;
 	pst->begin = pst->str;
 	pst->error = PE_SUCCESS;
-	if (parse(pst) & (gather_here_document(pst, sh) == 0))
+	parse(pst);
+	pst->str = NULL;
+	pst->begin = pst->str;
+	pst->error = PE_SUCCESS;
+	success = parse(pst);
+	if (success & (gather_here_document(pst, sh) == 0))
 	{
 		sh->next_pipe = NO_PIPE;
 		g_exit_status = execute_command(sh, &pst->now->command,

@@ -6,7 +6,7 @@
 /*   By: jkong <jkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 20:36:15 by jkong             #+#    #+#             */
-/*   Updated: 2022/06/28 18:41:47 by jkong            ###   ########.fr       */
+/*   Updated: 2022/09/23 03:23:19 by jkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,13 @@ typedef enum e_char_flag
 
 typedef enum e_token_kind
 {
-	TK_EOF = 0,
+	TK_AGAIN = 0,
 	TK_PAREN_L = '(',
 	TK_PAREN_R = ')',
 	TK_LESS = '<',
 	TK_GREATER = '>',
 	TK_OR = '|',
-	TK_AGAIN = 256,
+	TK_EOF = 256,
 	TK_ERROR,
 	TK_UNDEFINED,
 	TK_WORD,

@@ -6,7 +6,7 @@
 /*   By: jkong <jkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 02:18:56 by jkong             #+#    #+#             */
-/*   Updated: 2022/06/28 18:42:52 by jkong            ###   ########.fr       */
+/*   Updated: 2022/09/23 03:26:41 by jkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,16 +85,30 @@ static t_token_kind	_read_token_meta(t_parser *pst)
 	return (tok);
 }
 
+static void	_discard(t_parser *pst)
+{
+	while (has_flag(char_flags(*pst->str), CF_BLANK))
+		pst->str++;
+	if (*pst->str == '#')
+	{
+		while (*pst->str != '\0' && *pst->str != '\n')
+			pst->str++;
+	}
+	while (has_flag(char_flags(*pst->str), CF_BLANK))
+		pst->str++;
+}
+
 t_token_kind	read_token(t_parser *pst)
 {
 	t_token_kind	result;
 
 	pst->error = PE_SUCCESS;
+	if (!pst->str)
+		return (TK_EOF);
 	result = TK_UNDEFINED;
-	while (has_flag(char_flags(*pst->str), CF_BLANK))
-		pst->str++;
+	_discard(pst);
 	if (result == TK_UNDEFINED && *pst->str == '\0')
-		result = TK_EOF;
+		result = TK_AGAIN;
 	if (result == TK_UNDEFINED && has_flag(char_flags(*pst->str), CF_META))
 		result = _read_token_meta(pst);
 	if (result == TK_UNDEFINED)

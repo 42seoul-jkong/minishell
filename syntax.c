@@ -6,7 +6,7 @@
 /*   By: jkong <jkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/22 02:18:56 by jkong             #+#    #+#             */
-/*   Updated: 2022/06/27 23:48:24 by jkong            ###   ########.fr       */
+/*   Updated: 2022/09/23 03:27:31 by jkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static const t_char_flags	g_syn_table[256] = {
 	CFV_BREAK | CFV_BLANK,	/* SPC */
 	CFV_WORD,				/* ! */
 	CFV_QUOTE,				/* " */
-	CFV_WORD,				/* # */
+	CFV_BREAK,				/* # */
 	CFV_EXPANSION,			/* $ */
 	CFV_WORD,				/* % */
 	CFV_META | CFV_BREAK,	/* & */
