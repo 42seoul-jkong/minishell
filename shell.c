@@ -6,7 +6,7 @@
 /*   By: jkong <jkong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 20:34:05 by jkong             #+#    #+#             */
-/*   Updated: 2022/09/23 03:53:27 by jkong            ###   ########.fr       */
+/*   Updated: 2022/11/12 07:40:42 by jkong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@ static void	_eval(t_shell *sh, t_parser *pst, char *rl)
 	pst->str = rl;
 	pst->begin = pst->str;
 	pst->error = PE_SUCCESS;
-	parse(pst);
-	pst->str = NULL;
-	pst->begin = pst->str;
-	pst->error = PE_SUCCESS;
 	success = parse(pst);
+	if (pst->error == PE_AGAIN)
+	{
+		pst->str = NULL;
+		pst->begin = pst->str;
+		pst->error = PE_SUCCESS;
+		success = parse(pst);
+	}
 	if (success & (gather_here_document(pst, sh) == 0))
 	{
 		sh->next_pipe = NO_PIPE;
