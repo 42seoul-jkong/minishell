@@ -23,8 +23,8 @@ static void	_handle_signal(int sig)
 	if (sig == SIGINT)
 	{
 		on_signal();
-		rl_replace_line("", 1);
 		rl_on_new_line();
+		rl_replace_line("", 1);
 		rl_redisplay();
 	}
 	g_exit_status = get_exit_status(sig);
