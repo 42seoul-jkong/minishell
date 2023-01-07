@@ -13,14 +13,14 @@
 #include "minishell.h"
 #include "libft.h"
 
-//list -> pipeline
+/* list -> pipeline */
 t_token_kind	parser_reduce_15(t_parser *pst)
 {
 	(void)&pst;
 	return (TK_NT_LIST);
 }
 
-//list -> list '||' pipeline
+/* list -> list '||' pipeline */
 t_token_kind	parser_reduce_16(t_parser *pst)
 {
 	t_parser_stack	val;
@@ -43,7 +43,7 @@ t_token_kind	parser_reduce_16(t_parser *pst)
 	return (TK_NT_LIST);
 }
 
-//list -> list '&&' pipeline
+/* list -> list '&&' pipeline */
 t_token_kind	parser_reduce_17(t_parser *pst)
 {
 	t_parser_stack	val;
@@ -66,14 +66,14 @@ t_token_kind	parser_reduce_17(t_parser *pst)
 	return (TK_NT_LIST);
 }
 
-//pipeline -> command
+/* pipeline -> command */
 t_token_kind	parser_reduce_18(t_parser *pst)
 {
 	(void)&pst;
 	return (TK_NT_PIPELINE);
 }
 
-//pipeline -> command '|' pipeline
+/* pipeline -> command '|' pipeline */
 t_token_kind	parser_reduce_19(t_parser *pst)
 {
 	t_parser_stack	val;

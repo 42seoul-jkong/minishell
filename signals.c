@@ -30,7 +30,7 @@ static void	_handle_signal(int sig)
 	g_exit_status = get_exit_status(sig);
 }
 
-static void	_assert_signal(void *ptr)
+static void	_assert_signal(void (*ptr)(int))
 {
 	if (ptr == SIG_ERR)
 		exit(EXIT_FAILURE);

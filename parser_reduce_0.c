@@ -14,14 +14,14 @@
 #include "libft.h"
 #include <unistd.h>
 
-//S -> list
+/* S -> list */
 t_token_kind	parser_reduce_0(t_parser *pst)
 {
 	(void)&pst;
 	return (TK_NT_ACCEPT);
 }
 
-//simple_command_element -> WORD
+/* simple_command_element -> WORD */
 t_token_kind	parser_reduce_1(t_parser *pst)
 {
 	t_parser_stack	val;
@@ -39,7 +39,7 @@ t_token_kind	parser_reduce_1(t_parser *pst)
 	return (TK_NT_SIMPLE_COMMAND_ELEMENT);
 }
 
-//simple_command_element -> redirection
+/* simple_command_element -> redirection */
 t_token_kind	parser_reduce_2(t_parser *pst)
 {
 	t_parser_stack	val;
@@ -60,7 +60,7 @@ t_token_kind	parser_reduce_2(t_parser *pst)
 	return (TK_NT_SIMPLE_COMMAND_ELEMENT);
 }
 
-//redirection -> '<' WORD
+/* redirection -> '<' WORD */
 t_token_kind	parser_reduce_3(t_parser *pst)
 {
 	t_parser_stack	val;
@@ -77,7 +77,7 @@ t_token_kind	parser_reduce_3(t_parser *pst)
 	return (TK_NT_REDIRECTION);
 }
 
-//redirection -> '>' WORD
+/* redirection -> '>' WORD */
 t_token_kind	parser_reduce_4(t_parser *pst)
 {
 	t_parser_stack	val;

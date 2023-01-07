@@ -13,7 +13,7 @@
 #include "minishell.h"
 #include "libft.h"
 
-//redirection_list -> redirection_list redirection
+/* redirection_list -> redirection_list redirection */
 t_token_kind	parser_reduce_10(t_parser *pst)
 {
 	t_parser_stack	val;
@@ -37,21 +37,21 @@ t_token_kind	parser_reduce_10(t_parser *pst)
 	return (TK_NT_REDIRECTION_LIST);
 }
 
-//command -> simple_command
+/* command -> simple_command */
 t_token_kind	parser_reduce_11(t_parser *pst)
 {
 	(void)&pst;
 	return (TK_NT_COMMAND);
 }
 
-//command -> subshell
+/* command -> subshell */
 t_token_kind	parser_reduce_12(t_parser *pst)
 {
 	(void)&pst;
 	return (TK_NT_COMMAND);
 }
 
-//command -> subshell redirection_list
+/* command -> subshell redirection_list */
 t_token_kind	parser_reduce_13(t_parser *pst)
 {
 	t_parser_stack	val;
@@ -75,7 +75,7 @@ t_token_kind	parser_reduce_13(t_parser *pst)
 	return (TK_NT_COMMAND);
 }
 
-//subshell -> '(' list ')'
+/* subshell -> '(' list ')' */
 t_token_kind	parser_reduce_14(t_parser *pst)
 {
 	t_parser_stack	val;

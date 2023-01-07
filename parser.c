@@ -17,26 +17,28 @@
 #include "generic_list.h"
 #include "libft.h"
 
-// S -> list
-// simple_command_element -> WORD
-// simple_command_element -> redirection
-// redirection -> '<' WORD
-// redirection -> '>' WORD
-// redirection -> '<<' WORD
-// redirection -> '>>' WORD
-// simple_command -> simple_command_element
-// simple_command -> simple_command simple_command_element
-// redirection_list -> redirection
-// redirection_list -> redirection_list redirection
-// command -> simple_command
-// command -> subshell
-// command -> subshell redirection_list
-// subshell -> '(' list ')'
-// list -> pipeline
-// list -> list '||' pipeline
-// list -> list '&&' pipeline
-// pipeline -> command
-// pipeline -> command '|' pipeline
+/*
+ * S -> list
+ * simple_command_element -> WORD
+ * simple_command_element -> redirection
+ * redirection -> '<' WORD
+ * redirection -> '>' WORD
+ * redirection -> '<<' WORD
+ * redirection -> '>>' WORD
+ * simple_command -> simple_command_element
+ * simple_command -> simple_command simple_command_element
+ * redirection_list -> redirection
+ * redirection_list -> redirection_list redirection
+ * command -> simple_command
+ * command -> subshell
+ * command -> subshell redirection_list
+ * subshell -> '(' list ')'
+ * list -> pipeline
+ * list -> list '||' pipeline
+ * list -> list '&&' pipeline
+ * pipeline -> command
+ * pipeline -> command '|' pipeline
+ */
 static t_parse_func *const	g_grammer[] = {
 	parser_reduce_0,
 	parser_reduce_1,

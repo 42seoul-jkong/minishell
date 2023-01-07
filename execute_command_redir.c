@@ -18,9 +18,11 @@
 #include <string.h>
 #include <errno.h>
 
-// length == 0 -> /dev/null O_RDONLY
-// length > HEREDOC_PIPESIZE -> MAKE TEMPORARY FILE
-// otherwise -> herepipe
+/*
+ * length == 0 -> /dev/null O_RDONLY
+ * length > HEREDOC_PIPESIZE -> MAKE TEMPORARY FILE
+ * otherwise -> herepipe
+ */
 static int	_document_fd(t_redirect *redir, t_shell *sh)
 {
 	size_t		length;

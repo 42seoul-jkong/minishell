@@ -20,7 +20,7 @@ int	read_safe(int fd, void *buf, size_t len)
 	off = 0;
 	while (off < len)
 	{
-		res = read(fd, buf + off, len - off);
+		res = read(fd, (char *)buf + off, len - off);
 		if (res < 0)
 			exit(EXIT_FAILURE);
 		if (res == 0)
@@ -38,7 +38,7 @@ void	write_safe(int fd, const void *buf, size_t len)
 	off = 0;
 	while (off < len)
 	{
-		res = write(fd, buf + off, len - off);
+		res = write(fd, (const char *)buf + off, len - off);
 		if (res < 0)
 			exit(EXIT_FAILURE);
 		off += res;

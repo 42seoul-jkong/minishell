@@ -14,14 +14,14 @@
 #include "libft.h"
 
 static const t_builtin_info	g_builtins[] = {
-	(t_builtin_info){"echo", &ft_echo},
-	(t_builtin_info){"cd", &ft_cd},
-	(t_builtin_info){"pwd", &ft_pwd},
-	(t_builtin_info){"export", &ft_export},
-	(t_builtin_info){"unset", &ft_unset},
-	(t_builtin_info){"env", &ft_env},
-	(t_builtin_info){"exit", &ft_exit},
-	(t_builtin_info){NULL, NULL},
+	{"echo", &ft_echo},
+	{"cd", &ft_cd},
+	{"pwd", &ft_pwd},
+	{"export", &ft_export},
+	{"unset", &ft_unset},
+	{"env", &ft_env},
+	{"exit", &ft_exit},
+	{NULL, NULL},
 };
 
 t_builtin_func	get_builtin(char *cmd)

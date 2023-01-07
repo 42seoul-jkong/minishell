@@ -103,6 +103,8 @@ endif
 
 CFLAGS += $(addprefix -, $(C_CONFIG_FLAGS))
 
+CFLAGS += -ansi -D_DEFAULT_SOURCE -pedantic
+
 all: $(TARGET)
 clean:				;	$(RM) -r $(OBJECTS_DIR)
 fclean: clean		;	$(RM) $(TARGET)

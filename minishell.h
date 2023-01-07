@@ -44,7 +44,7 @@ enum	e_char_flag_index
 	CF_SPECIAL,
 	CF_EXPANSION,
 	CF_GLOB,
-	CF_BLANK,
+	CF_BLANK
 };
 
 typedef enum e_char_flag
@@ -56,7 +56,7 @@ typedef enum e_char_flag
 	CFV_SPECIAL = 1 << CF_SPECIAL,
 	CFV_EXPANSION = 1 << CF_EXPANSION,
 	CFV_GLOB = 1 << CF_GLOB,
-	CFV_BLANK = 1 << CF_BLANK,
+	CFV_BLANK = 1 << CF_BLANK
 }	t_char_flags;
 
 typedef enum e_token_kind
@@ -83,7 +83,7 @@ typedef enum e_token_kind
 	TK_NT_COMMAND,
 	TK_NT_SUBSHELL,
 	TK_NT_LIST,
-	TK_NT_PIPELINE,
+	TK_NT_PIPELINE
 }	t_token_kind;
 
 enum	e_word_flag_index
@@ -91,7 +91,7 @@ enum	e_word_flag_index
 	WF_HAS_DOLLAR,
 	WF_SPLIT,
 	WF_PARAM,
-	WF_IFS,
+	WF_IFS
 };
 
 typedef enum e_word_flags
@@ -101,7 +101,7 @@ typedef enum e_word_flags
 	WFV_PARAM = 1 << WF_PARAM,
 	WFV_IFS = 1 << WF_IFS,
 	WFV_NOQUOTE = WFV_HAS_DOLLAR | WFV_SPLIT,
-	WFV_DBLQUOTE = WFV_HAS_DOLLAR,
+	WFV_DBLQUOTE = WFV_HAS_DOLLAR
 }	t_word_flags;
 
 typedef struct s_word
@@ -122,7 +122,7 @@ typedef enum e_redirection
 	R_OUTPUT_DIRECTION,
 	R_INPUT_DIRECTION,
 	R_APPENDING_TO,
-	R_READING_UNTIL,
+	R_READING_UNTIL
 }	t_redirection;
 
 typedef struct s_redirect
@@ -146,12 +146,12 @@ typedef enum e_command_type
 	CMD_NOOP,
 	CMD_CONNECTION,
 	CMD_SIMPLE,
-	CMD_SUBSHELL,
+	CMD_SUBSHELL
 }	t_command_type;
 
 enum e_command_flag_index
 {
-	CMDF_ASYNC,
+	CMDF_ASYNC
 };
 
 typedef int							t_command_flags;
@@ -201,7 +201,7 @@ struct s_subshell_command
 
 enum	e_parser_flag_index
 {
-	PF_HERE_DOCUMENT,
+	PF_HERE_DOCUMENT
 };
 
 # define PARSER_ACCEPT -1000
@@ -216,7 +216,7 @@ typedef enum e_parser_error
 	PE_AGAIN,
 	PE_INCOMPLETED_PAIR,
 	PE_UNSUPPORTED_TOKEN,
-	PE_SYNTAX_ERROR,
+	PE_SYNTAX_ERROR
 }	t_parser_error;
 
 typedef struct s_parser_stack
@@ -258,18 +258,18 @@ typedef struct s_list_process
 
 enum	e_var_flag_index
 {
-	VF_EXPORTED,
+	VF_EXPORTED
 };
 
 typedef enum e_var_flag
 {
-	VFV_EXPORTED = 1 << VF_EXPORTED,
+	VFV_EXPORTED = 1 << VF_EXPORTED
 }	t_var_flags;
 
 enum	e_file_flag_index
 {
 	FF_DIRECTORY,
-	FF_HIDDEN,
+	FF_HIDDEN
 };
 
 typedef int							t_file_flags;
@@ -278,7 +278,7 @@ typedef enum e_file_status
 {
 	FS_NOT_FOUND,
 	FS_PROGRAM,
-	FS_PATHNAME,
+	FS_PATHNAME
 }	t_file_status;
 
 typedef struct s_list_var
@@ -296,9 +296,6 @@ typedef struct s_shell
 	t_list_process	*pid_list;
 	t_list_var		*var_list;
 }	t_shell;
-
-typedef struct s_str_buf			t_str_buf;
-typedef struct s_str_vec			t_str_vec;
 
 void					print_err(const char *format, ...);
 void					exit_fail(const char *s);
