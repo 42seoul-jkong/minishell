@@ -31,7 +31,7 @@ static int	_match_continuable(const char **pattern, const char **name,
 	if (**pattern == '\001')
 	{
 		*pattern_backup = (*pattern)++;
-		*name_backup = *name + 1;
+		*name_backup = *name;
 		return (1);
 	}
 	else if (**pattern != '\0' && **name == **pattern)
@@ -40,10 +40,11 @@ static int	_match_continuable(const char **pattern, const char **name,
 		(*name)++;
 		return (1);
 	}
-	if (*name_backup && (*name)[-1] != '\0')
+	if (*name_backup && **name != '\0')
 	{
 		*pattern = *pattern_backup;
 		*name = *name_backup;
+		(*name)++;
 		return (1);
 	}
 	return (0);
